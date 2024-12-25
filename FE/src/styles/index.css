@@ -1,0 +1,326 @@
+/* Global Styles */
+* {
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  --yellowColor: #f7c948;
+  --lightGray: #eeeef0;
+  --textGray: #999baf;
+  --nearWhite: #f8f8fa;
+  --colorVNPAY: #3576a8;
+  --lightGrayVNPAY: #f6f7f9;
+}
+
+/* Utility Classes */
+.none-border,
+.none-border > * {
+  border: none !important;
+  outline: none !important;
+}
+
+.none-border:hover,
+.none-border > *:hover {
+  border: none !important;
+  outline: none !important;
+}
+
+.none-border:focus,
+.none-border > *:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: white;
+  border: "var(--lightGray) solid 1px";
+  border-radius: 5px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-item {
+  flex: 1;
+  margin-bottom: 0;
+  outline: none;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+}
+
+.burger-icon {
+  display: none;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+}
+
+.nav-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  .burger-icon,
+  .burger-icon > img {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    top: 100%;
+    height: 100vh;
+    background: #333;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-list.active {
+    z-index: 100;
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+}
+
+/* VNPAY Styles */
+.text-vnpay {
+  color: var(--colorVNPAY);
+}
+
+.VNPAY_PAYMENT_OPTION {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 3px 10px #dad7d7;
+}
+
+.VNPAY_PAYMENT_OPTION:hover {
+  background: rgb(125, 124, 124);
+  cursor: pointer;
+}
+
+/* Form Styles */
+.form {
+  max-width: 100%;
+  background: var(--nearWhite);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-container {
+  max-width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--lightGray);
+  min-height: 100vh;
+}
+
+.payment-form {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--textGray);
+}
+
+/* Form Groups */
+.payment-form__group {
+  margin-bottom: 20px;
+}
+
+.payment-form__label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.payment-form__input,
+.payment-form__select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: var(--nearWhite);
+}
+
+/* Radio Group */
+.payment-form__radio-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+}
+
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.radio-button {
+  border-radius: 100px;
+  background: var(--lightGray);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.radio-button::before {
+  display: none !important;
+}
+
+.payment-form__radio {
+  padding: 10px;
+  border: 1px solid var(--lightGray);
+  border-radius: 6px;
+  text-align: center;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.payment-form__radio:hover {
+  background: var(--lightGray);
+}
+
+/* Button Styles */
+.payment-form__button {
+  width: 100%;
+  padding: 14px;
+  background: var(--colorVNPAY);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.payment-form__button:hover {
+  background: #285a8a;
+}
+
+.list-payment-container {
+  overflow: scroll;
+}
+
+/* Loading */
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.loading-animation {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--lightGrayVNPAY);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 10px;
+  }
+
+  .radio-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .payment-form {
+    padding: 15px;
+  }
+
+  .payment-form__title {
+    font-size: 1.2rem;
+  }
+
+  .payment-form__button {
+    font-size: 14px;
+  }
+}
